@@ -1,0 +1,18 @@
+{
+  "name": "microprism-glass-demo",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "tweakpane": "^4.0.5",
+    "microprism-glass": "file:.."
+  },
+  "devDependencies": {
+    "vite": "^8.3.0"
+  }
+}
