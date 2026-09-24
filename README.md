@@ -17,7 +17,7 @@ Apply it to any `<canvas>` from vanilla JS, Vue, Svelte, Angular or React.
 npm i microprism-glass
 
 ## Quick start (vanilla)
-
+```javascript
 import { applyMicroprism } from "microprism-glass";
 
 const canvas = document.querySelector("#fx");
@@ -30,6 +30,7 @@ const fx = applyMicroprism(canvas, "/photo.jpg", {
 // later
 fx.setParams({ focus: 30 });
 fx.destroy();
+```
 
 ## Params
 
