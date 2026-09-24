@@ -1,16 +1,27 @@
-# About
 
-Official WebGL2 port of my **Microprism Glass** shader from Figma Community:
+# microprism-glass
 
-```text
-https://www.figma.com/community/shader/1684290436246690557/microprism-glass
-```
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Try_it-blue)](https://turkovich.github.io/microprism-glass/)
+[![npm version](https://badge.fury.io/js/microprism-glass.svg)](https://www.npmjs.com/package/microprism-glass)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+Framework-agnostic WebGL2 port of the **Microprism Glass** shader for `<canvas>`. 
+Zero runtime dependencies. Works in Vanilla JS, Vue, Svelte, Angular, React, or any framework that can mount a canvas.
 
 Apply it to any `<canvas>` from vanilla JS, Vue, Svelte, Angular or React.
 
 - Zero runtime dependencies.
 - Ships ESM + CJS + TypeScript types.
 - GLSL is inlined at build time — no `?raw`, no loader config on your side.
+
+## Original Source & Attribution
+
+This package is an official WebGL2 port created by the author of the original design.
+
+- **Original Design:** [Microprism Glass on Figma Community](https://www.figma.com/community/shader/1684290436246690557/microprism-glass)
+- **Author:** Nikita Turkovich ([@turkovich](https://github.com/turkovich))
+- **Tech Stack Difference:** The original Figma resource uses WebGPU/WGSL. This npm package rewrites the same mathematical logic into GLSL ES 3.00 for broad browser compatibility without requiring experimental flags.
+
 
 ## Install
 
@@ -22,13 +33,15 @@ import { applyMicroprism } from "microprism-glass";
 
 const canvas = document.querySelector("#fx");
 const fx = applyMicroprism(canvas, "/photo.jpg", {
-  prismSize: 24,   // 4..32
-  focus: 0,        // 0 = max effect, 100 = original
-  prismContrast: 50,
+  prismSize: 24,     // 4..32
+  focus: 0,          // Range: 0..100 (0 = max effect, 100 = original)
+  prismContrast: 50, // Range: 0..100
 });
 
-// later
+// Update parameters dynamically (e.g., from sliders)
 fx.setParams({ focus: 30 });
+
+// Cleanup when component/unmounting
 fx.destroy();
 ```
 
@@ -53,6 +66,7 @@ with their platform check (e.g. Angular isPlatformBrowser).
 The project does not use esbuild's `serve` feature, so
 GHSA-67mh-4wv8-2f99 (CORS on the dev server) is not applicable here.
 esbuild is never shipped in `dist/` and is not a runtime dependency of consumers.
+
 
 ## License
 
