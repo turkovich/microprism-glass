@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: '20'
           
-      - name: Build package (for demo dependency)
+      - name: Build package
         run: |
           npm install
           npm run build
@@ -26,7 +26,7 @@ jobs:
       - name: Install deps for demo
         working-directory: ./demo
         run: npm ci
-        
+
       - name: Build demo
         working-directory: ./demo
         run: npm run build
