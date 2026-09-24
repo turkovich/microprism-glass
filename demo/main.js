@@ -2,12 +2,13 @@ import { applyMicroprism } from "microprism-glass";
 import { Pane } from "tweakpane";
 
 const canvas = document.querySelector("#fx");
+const imagePath = `${import.meta.env.BASE_URL}assets/demo.jpg`;
 
 if (!canvas) {
   throw new Error("Canvas element #fx not found");
 }
 
-const fx = applyMicroprism(canvas, "./assets/demo.jpg", {
+const fx = applyMicroprism(canvas, imagePath, {
   prismSize: 24,
   focus: 0,
   prismContrast: 50,
